@@ -1,0 +1,19 @@
+<div class="switch-field" afterRender="change('private')">
+    <div class="switch">
+        <input type="radio" name="order_type" id="radio-private" value="private" checked="checked" data-bind="click: click">
+        <label for="radio-private" data-bind="i18n: 'Individual'"></label>
+    </div>
+    <div class="switch">
+        <input type="radio" name="order_type" id="radio-business" value="business" data-bind="click: click">
+        <label for="radio-business" data-bind="i18n: 'Company'"></label>
+    </div>
+</div>
+<div class="custom-form-body magepow-form-custom">
+    <form id="custom-checkout-form" class="form" data-bind="attr: {'data-hasrequired': $t('* Required Fields')}, event: {change: onFormChange()}">
+        <fieldset class="fieldset">
+            <!-- ko foreach: getRegion('custom-checkout-form-fields') -->
+            <!-- ko template: getTemplate() --><!-- /ko -->
+            <!--/ko-->
+        </fieldset>
+    </form>
+</div>

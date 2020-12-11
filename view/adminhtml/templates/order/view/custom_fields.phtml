@@ -1,0 +1,44 @@
+<?php
+/**
+ * @copyright Copyright © 2020 Magepow. All rights reserved.
+ * @author    Magepow
+ * @category Magepow
+ * @copyright Copyright (c) 2014 Magepow (<https://www.magepow.com>)
+ * @license <https://www.magepow.com/license-agreement.html>
+ * @Author: magepow<support@magepow.com>
+ * @github: <https://github.com/magepow>
+ */
+/** @var Magento\Backend\Block\Template $block */
+
+/** @var Magepow\CheckoutCustomForm\Model\Data\CustomFields $customFields */
+$customFields = $block->getOrderCustomFields();
+?>
+<?php if($customFields): ?>
+    <section class="admin__page-section">
+        <div class="admin__page-section-title">
+            <span class="title"><?php /* @escapeNotVerified */ echo __('Other information') ?></span>
+        </div>
+        <div class="admin__page-section-content">
+            <div class="order-information">
+                <div class="box">
+                    <strong class="box-title"><span><?php /* @escapeNotVerified */ echo __('Denumire Firma') ?></span></strong>
+                    <div class="box-content">
+                        <?php echo $this->escapeHtml($customFields->getCheckoutDenumireFirma()); ?>
+                    </div>
+                </div>
+                <div class="box">
+                    <strong class="box-title"><span><?php /* @escapeNotVerified */ echo __('CUI') ?></span></strong>
+                    <div class="box-content">
+                        <?php echo $this->escapeHtml($customFields->getCheckoutCui()); ?>
+                    </div>
+                </div>
+                <div class="box">
+                    <strong class="box-title"><span><?php /* @escapeNotVerified */ echo __('Nr. Reg. Com.') ?></span></strong>
+                    <div class="box-content">
+                        <?php echo $this->escapeHtml($customFields->getCheckoutNrRegCom()); ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<?php endif; ?>

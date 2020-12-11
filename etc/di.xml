@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ *
+ * @copyright Copyright © 2020 Magepow. All rights reserved.
+ * @author    @copyright Copyright (c) 2014 Magepow (<https://www.magepow.com>)
+ * @license <https://www.magepow.com/license-agreement.html>
+ * @Author: magepow<support@magepow.com>
+ * @github: <https://github.com/magepow>
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Magepow\CheckoutCustomForm\Api\Data\CustomFieldsInterface"
+                type="Magepow\CheckoutCustomForm\Model\Data\CustomFields" />
+
+    <preference for="Magepow\CheckoutCustomForm\Api\CustomFieldsRepositoryInterface"
+                type="Magepow\CheckoutCustomForm\Model\CustomFieldsRepository" />
+
+    <preference for="Magepow\CheckoutCustomForm\Api\CustomFieldsGuestRepositoryInterface"
+                type="Magepow\CheckoutCustomForm\Model\CustomFieldsGuestRepository" />
+</config>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ *
+ * @copyright Copyright © 2020 Magepow. All rights reserved.
+ * @author    @copyright Copyright (c) 2014 Magepow (<https://www.magepow.com>)
+ * @license <https://www.magepow.com/license-agreement.html>
+ * @Author: magepow<support@magepow.com>
+ * @github: <https://github.com/magepow>
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="checkout.root">
+            <arguments>
+                <argument name="jsLayout" xsi:type="array">
+                    <item name="components" xsi:type="array">
+                        <item name="checkout" xsi:type="array">
+                            <item name="children" xsi:type="array">
+                                <item name="steps" xsi:type="array">
+                                    <item name="children" xsi:type="array">
+                                        <item name="shipping-step" xsi:type="array">
+                                            <item name="children" xsi:type="array">
+                                                <item name="shippingAddress" xsi:type="array">
+                                                    <item name="children" xsi:type="array">
+                                                        <item name="before-form" xsi:type="array">
+                                                            <item name="children" xsi:type="array">
+                                                                <item name="custom-checkout-form-container" xsi:type="array">
+                                                                    <!-- ===========================================-->
+                                                                    <item name="component" xsi:type="string">Magepow_CheckoutCustomForm/js/view/checkout/custom-checkout-form</item>
+                                                                    <item name="provider" xsi:type="string">checkoutProvider</item>
+                                                                    <item name="config" xsi:type="array">
+                                                                        <item name="template" xsi:type="string">Magepow_CheckoutCustomForm/checkout/custom-checkout-form</item>
+                                                                    </item>
+                                                                    <item name="children" xsi:type="array">
+                                                                        <item name="custom-checkout-form-fieldset" xsi:type="array">
+                                                                            <item name="component" xsi:type="string">uiComponent</item>
+                                                                            <item name="displayArea" xsi:type="string">custom-checkout-form-fields</item>
+                                                                            <item name="children" xsi:type="array">
+                                                                                <item name="checkout_denumire_firma" xsi:type="array">
+                                                                                    <item name="component" xsi:type="string">Magento_Ui/js/form/element/abstract</item>
+                                                                                    <item name="config" xsi:type="array">
+                                                                                        <item name="customScope" xsi:type="string">customCheckoutForm</item>
+                                                                                        <item name="template" xsi:type="string">ui/form/field</item>
+                                                                                        <item name="elementTmpl" xsi:type="string">ui/form/element/input</item>
+                                                                                    </item>
+                                                                                    <item name="provider" xsi:type="string">checkoutProvider</item>
+                                                                                    <item name="dataScope" xsi:type="string">customCheckoutForm.checkout_denumire_firma</item>
+                                                                                    <item name="label" xsi:type="string">Denumire Firma</item>
+                                                                                    <item name="sortOrder" xsi:type="string">1</item>
+                                                                                    <item name="validation" xsi:type="array">
+                                                                                        <item name="required-entry" xsi:type="boolean">true</item>
+                                                                                    </item>
+                                                                                </item>
+                                                                                <item name="checkout_cui" xsi:type="array">
+                                                                                    <item name="component" xsi:type="string">Magento_Ui/js/form/element/abstract</item>
+                                                                                    <item name="config" xsi:type="array">
+                                                                                        <item name="customScope" xsi:type="string">customCheckoutForm</item>
+                                                                                        <item name="template" xsi:type="string">ui/form/field</item>
+                                                                                        <item name="elementTmpl" xsi:type="string">ui/form/element/input</item>
+                                                                                        <item name="tooltip" xsi:type="array">
+                                                                                            <item name="description" xsi:type="string" translate="true">CUI</item>
+                                                                                        </item>
+                                                                                    </item>
+                                                                                    <item name="provider" xsi:type="string">checkoutProvider</item>
+                                                                                    <item name="dataScope" xsi:type="string">customCheckoutForm.checkout_cui</item>
+                                                                                    <item name="label" xsi:type="string">CUI</item>
+                                                                                    <item name="sortOrder" xsi:type="string">2</item>
+                                                                                    <item name="validation" xsi:type="array">
+                                                                                        <item name="required-entry" xsi:type="boolean">true</item>
+                                                                                    </item>
+                                                                                </item>
+                                                                                <item name="checkout_nr_reg_com" xsi:type="array">
+                                                                                    <item name="component" xsi:type="string">Magento_Ui/js/form/element/abstract</item>
+                                                                                    <item name="config" xsi:type="array">
+                                                                                        <item name="customScope" xsi:type="string">customCheckoutForm</item>
+                                                                                        <item name="template" xsi:type="string">ui/form/field</item>
+                                                                                        <item name="elementTmpl" xsi:type="string">ui/form/element/input</item>
+                                                                                    </item>
+                                                                                    <item name="validation" xsi:type="array">
+                                                                                        <item name="required-entry" xsi:type="boolean">false</item>
+                                                                                    </item>
+                                                                                    <item name="provider" xsi:type="string">checkoutProvider</item>
+                                                                                    <item name="dataScope" xsi:type="string">customCheckoutForm.checkout_nr_reg_com</item>
+                                                                                    <item name="label" xsi:type="string">Nr. Reg. Com.</item>
+                                                                                    <item name="sortOrder" xsi:type="string">3</item>
+                                                                                </item>
+                                                                            </item>
+                                                                        </item>
+                                                                    </item>
+                                                                </item>
+                                                            </item>
+                                                        </item>
+                                                    </item>
+                                                </item>
+                                            </item>
+                                        </item>
+                                    </item>
+                                </item>
+                            </item>
+                        </item>
+                    </item>
+                </argument>
+            </arguments>
+        </referenceBlock>
+    </body>
+</page>

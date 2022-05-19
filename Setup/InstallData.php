@@ -77,15 +77,39 @@ class InstallData implements InstallDataInterface
         $quoteInstaller
             ->addAttribute(
                 'quote',
-                CustomFieldsInterface::CHECKOUT_DENUMIRE_FIRMA,
+                CustomFieldsInterface::CHECKOUT_DELIVERY_TIME,
                 ['type' => Table::TYPE_TEXT, 'length' => '255', 'nullable' => true]
             )->addAttribute(
                 'quote',
-                CustomFieldsInterface::CHECKOUT_CUI,
+                CustomFieldsInterface::CHECKOUT_COLLECTION_SCHEDULE,
                 ['type' => Table::TYPE_TEXT, 'length' => '255', 'nullable' => true]
             )->addAttribute(
                 'quote',
-                CustomFieldsInterface::CHECKOUT_NR_REG_COM,
+                CustomFieldsInterface::CHECKOUT_DELIVERY_DATE,
+                ['type' => Table::TYPE_TEXT, 'length' => '255', 'nullable' => true]
+            )->addAttribute(
+                'quote',
+                CustomFieldsInterface::CHECKOUT_COLLECTION_TIME,
+                ['type' => Table::TYPE_TEXT, 'length' => '255', 'nullable' => true]
+            )->addAttribute(
+                'quote',
+                CustomFieldsInterface::CHECKBOX_BANK_TRANFER,
+                ['type' => Table::TYPE_BOOLEAN, 'length' => '255', 'nullable' => true]
+            )->addAttribute(
+                'quote',
+                CustomFieldsInterface::BANK_NAME_ON_ACCOUNT,
+                ['type' => Table::TYPE_TEXT, 'length' => '255', 'nullable' => true]
+            )->addAttribute(
+                'quote',
+                CustomFieldsInterface::BANK_ACCOUNT_NUMBER,
+                ['type' => Table::TYPE_TEXT, 'length' => '255', 'nullable' => true]
+            )->addAttribute(
+                'quote',
+                CustomFieldsInterface::BANK_ACCOUNT_SHORT_CODE,
+                ['type' => Table::TYPE_TEXT, 'length' => '255', 'nullable' => true]
+            )->addAttribute(
+                'quote',
+                CustomFieldsInterface::IMEI_TIME,
                 ['type' => Table::TYPE_TEXT, 'length' => '255', 'nullable' => true]
             );
     }
@@ -104,15 +128,39 @@ class InstallData implements InstallDataInterface
         $salesInstaller
             ->addAttribute(
                 'order',
-                CustomFieldsInterface::CHECKOUT_DENUMIRE_FIRMA,
+                CustomFieldsInterface::CHECKOUT_DELIVERY_TIME,
                 ['type' => Table::TYPE_TEXT, 'length' => '255', 'nullable' => true, 'grid' => false]
             )->addAttribute(
                 'order',
-                CustomFieldsInterface::CHECKOUT_CUI,
+                CustomFieldsInterface::CHECKOUT_COLLECTION_SCHEDULE,
                 ['type' => Table::TYPE_TEXT, 'length' => '255', 'nullable' => true, 'grid' => false]
             )->addAttribute(
                 'order',
-                CustomFieldsInterface::CHECKOUT_NR_REG_COM,
+                CustomFieldsInterface::CHECKOUT_DELIVERY_DATE,
+                ['type' => Table::TYPE_TEXT, 'length' => '255', 'nullable' => true, 'grid' => false]
+            )->addAttribute(
+                'order',
+                CustomFieldsInterface::CHECKOUT_COLLECTION_TIME,
+                ['type' => Table::TYPE_TEXT, 'length' => '255', 'nullable' => true, 'grid' => false]
+            )->addAttribute(
+                'order',
+                CustomFieldsInterface::CHECKBOX_BANK_TRANFER,
+                ['type' => Table::TYPE_BOOLEAN, 'length' => '255', 'nullable' => true, 'grid' => false]
+            )->addAttribute(
+                'order',
+                CustomFieldsInterface::BANK_NAME_ON_ACCOUNT,
+                ['type' => Table::TYPE_TEXT, 'length' => '255', 'nullable' => true, 'grid' => false]
+            )->addAttribute(
+                'order',
+                CustomFieldsInterface::BANK_ACCOUNT_NUMBER,
+                ['type' => Table::TYPE_TEXT, 'length' => '255', 'nullable' => true, 'grid' => false]
+            )->addAttribute(
+                'order',
+                CustomFieldsInterface::BANK_ACCOUNT_SHORT_CODE,
+                ['type' => Table::TYPE_TEXT, 'length' => '255', 'nullable' => true, 'grid' => false]
+            )->addAttribute(
+                'order',
+                CustomFieldsInterface::IMEI_TIME,
                 ['type' => Table::TYPE_TEXT, 'length' => '255', 'nullable' => true, 'grid' => false]
             );
     }

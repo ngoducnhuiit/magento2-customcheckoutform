@@ -13,48 +13,128 @@ namespace Magepow\CheckoutCustomForm\Api\Data;
 
 interface CustomFieldsInterface
 {
-    const CHECKOUT_DENUMIRE_FIRMA = 'checkout_denumire_firma';
-    const CHECKOUT_CUI = 'checkout_cui';
-    const CHECKOUT_NR_REG_COM = 'checkout_nr_reg_com';
+    const CHECKOUT_COLLECTION_SCHEDULE = 'checkout_collection_schedule';
+    const CHECKOUT_DELIVERY_TIME = 'checkout_delivery_time';
+    const CHECKOUT_DELIVERY_DATE = 'checkout_delivery_date';
+    const CHECKOUT_COLLECTION_TIME = 'checkout_collection_time';
+
+    const CHECKBOX_BANK_TRANFER = 'checkbox_bank_tranfer';
+    const BANK_NAME_ON_ACCOUNT = 'bank_name_on_account';
+    const BANK_ACCOUNT_NUMBER = 'bank_account_number';
+    const BANK_ACCOUNT_SHORT_CODE = 'bank_account_short_code';
+    
+    const IMEI_TIME = 'imei_time';
 
 
     /**
      * @return string|null
      */
-    public function getCheckoutDenumireFirma();
+    public function getCheckoutDeliveryTime();
 
     /**
      * @return string|null
      */
-    public function getCheckoutCui();
+    public function getCheckoutCollectionSchedule();
 
     /**
      * @return string|null
      */
-    public function getCheckoutNrRegCom();
+    public function getCheckoutDeliveryDate();
+
+    /**
+     * @return string|null
+     */
+    public function getCheckoutCollectionTime();
+
+    /**
+     * @return string|null
+     */
+    public function getCheckboxBankTranfer();
+
+    /**
+     * @return string|null
+     */
+    public function getBankNameOnAccount();
+
+    /**
+     * @return string|null
+     */
+    public function getBankAccountNumber();
+
+    /**
+     * @return string|null
+     */
+    public function getBankAccountShortCode();
+
+    /**
+     * @return string|null
+     */
+    public function getImeiTime();
 
 
     /**
-     * @param string|null $checkoutDenumireFirma Denumire Firma
+     * @param string|null $checkoutDeliveryTime
      *
      * @return CustomFieldsInterface
      */
-    public function setCheckoutDenumireFirma(string $checkoutDenumireFirma = null);
+    public function setCheckoutDeliveryTime(string $checkoutDeliveryTime = null);
 
     /**
-     * @param string|null $checkoutCui CUI
+     * @param string|null $checkoutCollectionSchedule
      *
      * @return CustomFieldsInterface
      */
-    public function setCheckoutCui(string $checkoutCui = null);
+    public function setCheckoutCollectionSchedule(string $checkoutCollectionSchedule = null);
 
     /**
-     * @param string|null $checkoutNrRegCom Nr. Reg. Com.
+     * @param string|null $checkoutDeliveryDate
      *
      * @return CustomFieldsInterface
      */
-    public function setCheckoutNrRegCom(string $checkoutNrRegCom = null);
+    public function setCheckoutDeliveryDate(string $checkoutDeliveryDate = null);
+
+    /**
+     * @param string|null $checkoutCollectionTime
+     *
+     * @return CustomFieldsInterface
+     */
+    public function setCheckoutCollectionTime(string $checkoutCollectionTime = null);
 
 
+    /**
+     * @param string|null $checkboxBankTranfer
+     *
+     * @return CustomFieldsInterface
+     */
+    public function setCheckboxBankTranfer(string $checkboxBankTranfer = null);
+
+    /**
+     * @param string|null $bankNameOnAccount
+     *
+     * @return CustomFieldsInterface
+     */
+    public function setBankNameOnAccount(string $bankNameOnAccount = null);
+
+    /**
+     * @param string|null $bankAccountNumber
+     *
+     * @return CustomFieldsInterface
+     */
+    public function setBankAccountNumber(string $bankAccountNumber = null);
+
+    /**
+     * @param string|null $bankAccountShortCode
+     *
+     * @return CustomFieldsInterface
+     */
+    public function setBankAccountShortCode(string $bankAccountShortCode = null);
+
+
+    /**
+     * @param string|null $imeiTime
+     *
+     * @return CustomFieldsInterface
+     */
+    public function setImeiTime(string $imeiTime = null);
 
 }

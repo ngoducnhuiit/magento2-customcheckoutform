@@ -1,0 +1,45 @@
+
+<?php 
+    $order = $block->getOrder();
+?>
+<div class="custom-form-body magepow-form-sucess-custom">
+    <form id="custom-checkout-sucess-form" class="form" action="<?php echo $this->getUrl('customcheckout/index/index') ?>" method="post">
+        <input type="hidden" name="order_id" value="<?php echo $order->getData('order_id') ?>">
+        <h3 class="form-title"><?php echo __("What's your Imei?") ?></h3>
+        <fieldset class="fieldset">
+            <div class="field">
+                <label class="label">
+                    <span><?php echo __('Imei') ?></span>
+                </label>
+                <div class="control">
+                    <input class="input-text" type="text" name="imei_time" placeholder="Example: 863725040258814">
+                </div>
+            </div>
+        </fieldset>
+        <input class="action submit" type="submit" value="Sell & Get Paid Today!">
+    </form>
+</div>
+
+<script type="text/javascript">
+    require(['jquery'], function($){
+        $('#custom-checkout-sucess-form').submit(function(event) {
+            var self = this;
+            $(event.target).serialize();
+            $.ajax({
+                url: $(e.target).attr('action'),
+                data: $(e.target).serialize(),
+                showLoader: true,
+                type: 'POST',
+                dataType: 'json',
+                success: function (response) {
+                    setTimeout(function() {
+                        window.location.href = <?php echo $this->getBaseUrl(); ?>;
+                    }, 1000);
+                },
+                
+            });
+        });
+
+        
+    });
+</script>

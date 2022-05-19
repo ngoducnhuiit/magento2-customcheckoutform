@@ -70,16 +70,41 @@ class CustomFieldsRepository implements CustomFieldsRepositoryInterface
 
         try {
             $cart->setData(
-                CustomFieldsInterface::CHECKOUT_DENUMIRE_FIRMA,
-                $customFields->getCheckoutDenumireFirma()
+                CustomFieldsInterface::CHECKOUT_DELIVERY_TIME,
+                $customFields->getCheckoutDeliveryTime()
             );
             $cart->setData(
-                CustomFieldsInterface::CHECKOUT_CUI,
-                $customFields->getCheckoutCui()
+                CustomFieldsInterface::CHECKOUT_COLLECTION_SCHEDULE,
+                $customFields->getCheckoutCollectionSchedule()
             );
             $cart->setData(
-                CustomFieldsInterface::CHECKOUT_NR_REG_COM,
-                $customFields->getCheckoutNrRegCom()
+                CustomFieldsInterface::CHECKOUT_DELIVERY_DATE,
+                $customFields->getCheckoutDeliveryDate()
+            );
+            $cart->setData(
+                CustomFieldsInterface::CHECKOUT_COLLECTION_TIME,
+                $customFields->getCheckoutCollectionTime()
+            );
+            $cart->setData(
+                CustomFieldsInterface::CHECKBOX_BANK_TRANFER,
+                $customFields->getCheckboxBankTranfer()
+            );
+            $cart->setData(
+                CustomFieldsInterface::BANK_NAME_ON_ACCOUNT,
+                $customFields->getBankNameOnAccount()
+            );
+            $cart->setData(
+                CustomFieldsInterface::BANK_ACCOUNT_NUMBER,
+                $customFields->getBankAccountNumber()
+            );
+            $cart->setData(
+                CustomFieldsInterface::BANK_ACCOUNT_SHORT_CODE,
+                $customFields->getBankAccountShortCode()
+            );
+
+            $cart->setData(
+                CustomFieldsInterface::IMEI_TIME,
+                $customFields->getImeiTime()
             );
 
 
@@ -103,14 +128,33 @@ class CustomFieldsRepository implements CustomFieldsRepositoryInterface
             throw new NoSuchEntityException(__('Order %1 does not exist', $order));
         }
 
-        $this->customFields->setCheckoutDenumireFirma(
-            $order->getData(CustomFieldsInterface::CHECKOUT_DENUMIRE_FIRMA)
+        $this->customFields->setCheckoutDeliveryTime(
+            $order->getData(CustomFieldsInterface::CHECKOUT_DELIVERY_TIME)
         );
-        $this->customFields->setCheckoutCui(
-            $order->getData(CustomFieldsInterface::CHECKOUT_CUI)
+        $this->customFields->setCheckoutCollectionSchedule(
+            $order->getData(CustomFieldsInterface::CHECKOUT_COLLECTION_SCHEDULE)
         );
-        $this->customFields->setCheckoutNrRegCom(
-            $order->getData(CustomFieldsInterface::CHECKOUT_NR_REG_COM)
+        $this->customFields->setCheckoutDeliveryDate(
+            $order->getData(CustomFieldsInterface::CHECKOUT_DELIVERY_DATE)
+        );
+        $this->customFields->setCheckoutCollectionTime(
+            $order->getData(CustomFieldsInterface::CHECKOUT_COLLECTION_TIME)
+        );
+        $this->customFields->setCheckboxBankTranfer(
+            $order->getData(CustomFieldsInterface::CHECKBOX_BANK_TRANFER)
+        );
+        $this->customFields->setBankNameOnAccount(
+            $order->getData(CustomFieldsInterface::BANK_NAME_ON_ACCOUNT)
+        );
+        $this->customFields->setBankAccountNumber(
+            $order->getData(CustomFieldsInterface::BANK_ACCOUNT_NUMBER)
+        );
+        $this->customFields->setBankAccountShortCode(
+            $order->getData(CustomFieldsInterface::BANK_ACCOUNT_SHORT_CODE)
+        );
+
+        $this->customFields->setImeiTime(
+            $order->getData(CustomFieldsInterface::IMEI_TIME)
         );
 
         return $this->customFields;

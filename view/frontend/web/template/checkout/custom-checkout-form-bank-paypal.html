@@ -1,0 +1,16 @@
+<div class="custom-form-body magepow-form-custom-bank-paypal">
+    <form id="custom-checkout-form-paypal" class="form" data-bind="attr: {'data-hasrequired': $t('* Required Fields')}, event: {change: onFormChange()}">
+        <fieldset class="fieldset">
+            <!-- ko foreach: getRegion('custom-checkout-form-fields-bank-paypal') -->
+            <!-- ko template: getTemplate() --><!-- /ko -->
+            <!--/ko-->
+        </fieldset>
+    </form>
+    <div class="note-paypal-email">
+        <span data-bind="i18n:'Please check your paypal email address is correct before proceeding'"></span>
+    </div>
+    <!-- <div class="parent-button-continue">
+        <button class="action continue trigger-place_order" data-bind="i18n: 'Continue'"></button>
+    </div> -->
+    
+</div>

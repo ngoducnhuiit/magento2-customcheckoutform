@@ -1,0 +1,86 @@
+<script type="text/javascript">
+	require(['jquery'], function($){
+		$(document).on('click', '.admin__field-control .admin__field-option',function(){
+			var thisVal = $(this).find('input').val();
+			localStorage.setItem("checkval", thisVal);
+			if(thisVal == 'value_1'){
+				$('div[name="customCheckoutForm.checkout_delivery_time"], div[name="customCheckoutForm.checkout_delivery_date"]').hide();
+				$('div[name="customCheckoutForm.checkout_collection_time"]').show();
+				
+			}else if(thisVal == 'value_2'){
+				$('div[name="customCheckoutForm.checkout_delivery_time"], div[name="customCheckoutForm.checkout_delivery_date"]').show();
+				$('div[name="customCheckoutForm.checkout_collection_time"]').hide();
+			}
+			$('#checkout-new').html('');
+			
+		});
+		if(localStorage.getItem("checkval")){
+			if(localStorage.getItem("checkval") == "value_1"){
+				$('#checkout-new').html('.magepow-form-custom div[name="customCheckoutForm.checkout_delivery_time"],.magepow-form-custom div[name="customCheckoutForm.checkout_delivery_date"]{display: none;} .magepow-form-custom div[name="customCheckoutForm.checkout_collection_time"]{display: block;}');
+			}else if(localStorage.getItem("checkval") == 'value_2'){
+				$('#checkout-new').html('.magepow-form-custom div[name="customCheckoutForm.checkout_delivery_time"],.magepow-form-custom div[name="customCheckoutForm.checkout_delivery_date"]{display: block !important;} .magepow-form-custom div[name="customCheckoutForm.checkout_collection_time"]{display: none;}');
+			}
+		}
+		$(document).on('click', '.payment-method',function(){
+			if($(this).find('input').val() == 'banktransfer'){
+				if($(this).find('.custom-form-body.magepow-form-custom-bank').length == 0){
+					$('.custom-form-body.magepow-form-custom-bank').appendTo($(this));
+				}
+			}
+			if($(this).find('input').val() == 'checkmo'){
+				if($(this).find('.custom-form-body.magepow-form-custom-bank-paypal').length == 0){
+					$('.custom-form-body.magepow-form-custom-bank-paypal').appendTo($(this));
+				}
+			}
+		});
+
+		$(document).on('click', '.continue.trigger-place_order', function(event){
+			$(document).find('.osc-place-order-wrapper .action.primary.checkout').trigger('click');
+			event.stopPropagation();
+            event.preventDefault();
+		});
+
+
+		$(window).on('load', function() {
+			var loadTime = parseInt(window.performance.timing.domContentLoadedEventEnd - window.performance.timing.navigationStart);
+			setTimeout(function(){
+				$('#checkout-payment-method-load .payment-group .payment-method').each(function(){
+					if($(this).find('input').val() == 'banktransfer'){
+						if($(this).find('.custom-form-body.magepow-form-custom-bank').length == 0){
+							$('.custom-form-body.magepow-form-custom-bank').appendTo($(this));
+						}
+					}
+					if($(this).find('input').val() == 'checkmo'){
+						if($(this).find('.custom-form-body.magepow-form-custom-bank-paypal').length == 0){
+							$('.custom-form-body.magepow-form-custom-bank-paypal').appendTo($(this));
+						}	
+					}
+
+				});
+				if(localStorage.getItem("checkval")){
+					if(localStorage.getItem("checkval") == "value_1"){
+						$('#checkout-new .admin__field .admin__field-option input[value="value_1"]').trigger('click');
+					}else if(localStorage.getItem("checkval") == 'value_2'){
+						$('#checkout-new .admin__field .admin__field-option input[value="value_2"]').trigger('click');
+					}
+				}
+			}, loadTime);
+
+			
+		  
+		});
+
+		setInterval(function(){ 
+
+			$('#checkout .field._required').each(function(){
+				if($(this).find('input').val() == '' && $(this).is(":visible")){
+					$('#checkout button.action').attr('disabled', true);
+					return false;
+				}else{
+					$('#checkout button.action').removeAttr('disabled');
+				}
+			});
+		}, 2000);
+	});
+</script>
+<style type="text/css" id="checkout-new"></style>

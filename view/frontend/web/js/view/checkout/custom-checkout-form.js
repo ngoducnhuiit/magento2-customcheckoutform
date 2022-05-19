@@ -52,68 +52,45 @@ define([
             this.source.set('params.invalid', false);
             this.source.trigger('customCheckoutForm.data.validate');
 
-            if (!this.source.get('params.invalid')) {
-                var formData = this.source.get('customCheckoutForm');
-                var quoteId = quote.getQuoteId();
-                var isCustomer = customer.isLoggedIn();
-                var url;
+            
+            var formData = this.source.get('customCheckoutForm');
+            var quoteId = quote.getQuoteId();
+            var isCustomer = customer.isLoggedIn();
+            var url;
 
-                if (isCustomer) {
-                    url = urlBuilder.createUrl('/carts/mine/set-order-custom-fields', {});
-                } else {
-                    url = urlBuilder.createUrl('/guest-carts/:cartId/set-order-custom-field', {cartId: quoteId});
+            if (isCustomer) {
+                url = urlBuilder.createUrl('/carts/mine/set-order-custom-fields', {});
+            } else {
+                url = urlBuilder.createUrl('/guest-carts/:cartId/set-order-custom-field', {cartId: quoteId});
+            }
+
+            var payload = {
+                cartId: quoteId,
+                customFields: formData
+            };
+            var result = true;
+            $.ajax({
+                url: urlFormatter.build(url),
+                data: JSON.stringify(payload),
+                global: false,
+                contentType: 'application/json',
+                type: 'PUT',
+                async: true
+            }).done(
+                function (response) {
+                    cartCache.set('custom-form', formData);
+                    result = true;
                 }
+            ).fail(
+                function (response) {
+                    result = false;
+                    errorProcessor.process(response);
+                }
+            );
 
-                var payload = {
-                    cartId: quoteId,
-                    customFields: formData
-                };
-                var result = true;
-                $.ajax({
-                    url: urlFormatter.build(url),
-                    data: JSON.stringify(payload),
-                    global: false,
-                    contentType: 'application/json',
-                    type: 'PUT',
-                    async: true
-                }).done(
-                    function (response) {
-                        cartCache.set('custom-form', formData);
-                        result = true;
-                    }
-                ).fail(
-                    function (response) {
-                        result = false;
-                        errorProcessor.process(response);
-                    }
-                );
-
-                return result;
-            }
+            return result;
+            
         },
-
-        /**
-         * Handle radio click, return true to check te radio
-         */
-        click: function(data, event) {
-            this.change(event.target.value);
-
-            return true;
-        },
-
-        /**
-         * Change value of radio
-         */
-        change: function(value) {
-            if (value === 'private') {
-                $('.magepow-form-custom').hide();
-                $('input[name="checkout_denumire_firma"]').val('');
-                $('input[name="checkout_cui"]').val('');
-                $('input[name="checkout_nr_reg_com"]').val('');
-            } else if (value === 'business') {
-                $('.magepow-form-custom').show();
-            }
-        }
 
     });
 });

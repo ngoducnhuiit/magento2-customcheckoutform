@@ -18,4 +18,8 @@
 
     <preference for="Magepow\CheckoutCustomForm\Api\CustomFieldsGuestRepositoryInterface"
                 type="Magepow\CheckoutCustomForm\Model\CustomFieldsGuestRepository" />
+
+    <!-- <type name="Magento\Checkout\Block\Checkout\AttributeMerger">
+        <plugin name="add_placeholder_to_checkout" type="Magepow\CheckoutCustomForm\Plugin\Block\Checkout\AttributeMerger\Plugin"/>
+    </type> -->
 </config>

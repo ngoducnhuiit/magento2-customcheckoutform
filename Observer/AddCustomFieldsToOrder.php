@@ -29,16 +29,42 @@ class AddCustomFieldsToOrder implements ObserverInterface
         $quote = $observer->getEvent()->getQuote();
 
         $order->setData(
-            CustomFieldsInterface::CHECKOUT_DENUMIRE_FIRMA,
-            $quote->getData(CustomFieldsInterface::CHECKOUT_DENUMIRE_FIRMA)
+            CustomFieldsInterface::CHECKOUT_DELIVERY_TIME,
+            $quote->getData(CustomFieldsInterface::CHECKOUT_DELIVERY_TIME)
         );
         $order->setData(
-            CustomFieldsInterface::CHECKOUT_CUI,
-            $quote->getData(CustomFieldsInterface::CHECKOUT_CUI)
+            CustomFieldsInterface::CHECKOUT_COLLECTION_SCHEDULE,
+            $quote->getData(CustomFieldsInterface::CHECKOUT_COLLECTION_SCHEDULE)
         );
         $order->setData(
-            CustomFieldsInterface::CHECKOUT_NR_REG_COM,
-            $quote->getData(CustomFieldsInterface::CHECKOUT_NR_REG_COM)
+            CustomFieldsInterface::CHECKOUT_DELIVERY_DATE,
+            $quote->getData(CustomFieldsInterface::CHECKOUT_DELIVERY_DATE)
+        );
+
+        $order->setData(
+            CustomFieldsInterface::CHECKOUT_COLLECTION_TIME,
+            $quote->getData(CustomFieldsInterface::CHECKOUT_COLLECTION_TIME)
+        );
+        $order->setData(
+            CustomFieldsInterface::CHECKBOX_BANK_TRANFER,
+            $quote->getData(CustomFieldsInterface::CHECKBOX_BANK_TRANFER)
+        );
+        $order->setData(
+            CustomFieldsInterface::BANK_NAME_ON_ACCOUNT,
+            $quote->getData(CustomFieldsInterface::BANK_NAME_ON_ACCOUNT)
+        );
+        $order->setData(
+            CustomFieldsInterface::BANK_ACCOUNT_NUMBER,
+            $quote->getData(CustomFieldsInterface::BANK_ACCOUNT_NUMBER)
+        );
+        $order->setData(
+            CustomFieldsInterface::BANK_ACCOUNT_SHORT_CODE,
+            $quote->getData(CustomFieldsInterface::BANK_ACCOUNT_SHORT_CODE)
+        );
+
+        $order->setData(
+            CustomFieldsInterface::IMEI_TIME,
+            $quote->getData(CustomFieldsInterface::IMEI_TIME)
         );
     }
 }

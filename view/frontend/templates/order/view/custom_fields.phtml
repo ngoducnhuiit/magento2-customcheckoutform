@@ -14,20 +14,70 @@
 $customFields = $block->getCustomFields($block->getOrder());
 ?>
 <?php if($customFields): ?>
-    <div class="block block-order-details-view">
-        <div class="block-content">
-            <div class="box">
-                <strong class="box-title"><span><?php /* @escapeNotVerified */ echo __('Other information') ?></span></strong>
-                <div class="box-content">
-                    <strong><?php /* @escapeNotVerified */ echo __('Denumire Firma') ?>:</strong>
-                    <?php echo $this->escapeHtml($customFields->getCheckoutDenumireFirma()); ?><br>
-                    <strong><?php /* @escapeNotVerified */ echo __('CUI') ?>:</strong>
-                    <?php echo $this->escapeHtml($customFields->getCheckoutCui()); ?><br>
-                    <strong><?php /* @escapeNotVerified */ echo __('Nr. Reg. Com.') ?>:</strong>
-                    <?php echo $this->escapeHtml($customFields->getCheckoutNrRegCom()); ?><br>
-
-                </div>
+    <?php if($customFields->getImeiTime() || $customFields->getCheckboxBankTranfer() || $customFields->getBankNameOnAccount() || $customFields->getBankAccountNumber() || $customFields->getBankAccountShortCode()): ?>
+    <?php 
+        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+        $orderId  = $this->getRequest()->getParam('order_id');
+        $orderRepository = $objectManager->create('Magento\Sales\Api\OrderRepositoryInterface')->get($orderId);
+        $checkPayment = $orderRepository->getPayment()->getData('method');
+    ?>
+        <div class="magepow-custom-form-bank">
+            <span><?php /* @escapeNotVerified */ echo __('Billing Information') ?></span>
+            <div class="box-content-customform">
+               <?php if($customFields->getImeiTime()): ?>
+                    <label><?php /* @escapeNotVerified */ echo __('Imei:') ?>:</label>
+                    <?php echo $this->escapeHtml($customFields->getImeiTime()); ?><br>
+                <?php  endif; ?>
+                <?php if($checkPayment == 'checkmo'): ?>
+                    <?php if($customFields->getCheckboxBankTranfer()): ?>
+                        <label><?php /* @escapeNotVerified */ echo __('PayPal Email:') ?>:</label>
+                        <?php echo $this->escapeHtml($customFields->getCheckboxBankTranfer()); ?><br>
+                    <?php  endif; ?>
+                <?php elseif($checkPayment == 'banktransfer'): ?>
+                    <?php if($customFields->getBankNameOnAccount()): ?>
+                        <label><?php /* @escapeNotVerified */ echo __('Name On Account:') ?>:</label>
+                        <?php echo $this->escapeHtml($customFields->getBankNameOnAccount()); ?><br>
+                    <?php  endif; ?>
+                    <?php if($customFields->getBankAccountNumber()): ?>
+                        <label><?php /* @escapeNotVerified */ echo __('Account Number:') ?>:</label>
+                        <?php echo $this->escapeHtml($customFields->getBankAccountNumber()); ?><br>
+                    <?php  endif; ?>
+                    <?php if($customFields->getBankAccountShortCode()): ?>
+                        <label><?php /* @escapeNotVerified */ echo __('Account Short Code:') ?>:</label>
+                        <?php echo $this->escapeHtml($customFields->getBankAccountShortCode()); ?><br>  
+                    <?php  endif; ?>
+                <?php  endif; ?>
             </div>
         </div>
-    </div>
+
+        <div class="magepow-custom-form-shipping-method">
+            <div class="box-content-customform">
+               <?php if($customFields->getCheckoutCollectionSchedule() == 'value_1'): ?>
+                <div class="box">
+                    <strong class="box-title"><span><?php /* @escapeNotVerified */ echo __('Collection Today') ?></span></strong>
+                </div><br>
+            <?php elseif($customFields->getCheckoutCollectionSchedule() == 'value_2'): ?>
+                <div class="box">
+                    <strong class="box-title"><span><?php /* @escapeNotVerified */ echo __('Schedule for Later') ?></span></strong>
+                </div><br>
+                <?php if($customFields->getCheckoutDeliveryDate()): ?>
+                    <div class="box">
+                        <label class="box-title"><span><?php /* @escapeNotVerified */ echo __('Delivery Date:') ?></span></label>
+                        <div class="box-content">
+                            <?php echo $this->escapeHtml($customFields->getCheckoutDeliveryDate()); ?>
+                        </div>
+                    </div><br>
+                <?php  endif; ?>
+            <?php  endif; ?>
+            </div>
+            
+        </div>
+      
+        <script type="text/javascript">
+            require(['jquery'], function($) {
+               $('.magepow-custom-form-bank').appendTo('.sales-order-view .block-order-details-view .box.box-order-billing-method .box-content'); 
+               $('.magepow-custom-form-shipping-method').appendTo('.sales-order-view .block-order-details-view .box.box-order-shipping-method .box-content'); 
+            });
+        </script>
+    <?php endif; ?>
 <?php endif; ?>

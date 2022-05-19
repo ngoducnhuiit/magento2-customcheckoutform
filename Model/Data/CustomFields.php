@@ -20,60 +20,166 @@ class CustomFields extends AbstractExtensibleObject implements CustomFieldsInter
     /**
      * @return string|null
      */
-    public function getCheckoutDenumireFirma()
+    public function getCheckoutDeliveryTime()
     {
-        return $this->_get(self::CHECKOUT_DENUMIRE_FIRMA);
+        return $this->_get(self::CHECKOUT_DELIVERY_TIME);
     }
 
     /**
      * @return string|null
      */
-    public function getCheckoutCui()
+    public function getCheckoutCollectionSchedule()
     {
-        return $this->_get(self::CHECKOUT_CUI);
+        return $this->_get(self::CHECKOUT_COLLECTION_SCHEDULE);
     }
 
     /**
      * @return string|null
      */
-    public function getCheckoutNrRegCom()
+    public function getCheckoutDeliveryDate()
     {
-        return $this->_get(self::CHECKOUT_NR_REG_COM);
-    }
-
-
-
-    /**
-     * @param string|null $checkoutDenumireFirma Denumire Firma
-     *
-     * @return CustomFieldsInterface
-     */
-    public function setCheckoutDenumireFirma(string $checkoutDenumireFirma = null)
-    {
-        return $this->setData(self::CHECKOUT_DENUMIRE_FIRMA, $checkoutDenumireFirma);
+        return $this->_get(self::CHECKOUT_DELIVERY_DATE);
     }
 
     /**
-     * @param string|null $checkoutCui CUI
-     *
-     * @return CustomFieldsInterface
+     * @return string|null
      */
-    public function setCheckoutCui(string $checkoutCui = null)
+    public function getCheckoutCollectionTime()
     {
-        return $this->setData(self::CHECKOUT_CUI, $checkoutCui);
+        return $this->_get(self::CHECKOUT_COLLECTION_TIME);
     }
 
     /**
-     * @param string|null $checkoutNrRegCom Nr. Reg. Com.
-     *
-     * @return CustomFieldsInterface
+     * @return string|null
      */
-    public function setCheckoutNrRegCom(string $checkoutNrRegCom = null)
+    public function getCheckboxBankTranfer()
     {
-        return $this->setData(self::CHECKOUT_NR_REG_COM, $checkoutNrRegCom);
+        return $this->_get(self::CHECKBOX_BANK_TRANFER);
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getBankNameOnAccount()
+    {
+        return $this->_get(self::BANK_NAME_ON_ACCOUNT);
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getBankAccountNumber()
+    {
+        return $this->_get(self::BANK_ACCOUNT_NUMBER);
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getBankAccountShortCode()
+    {
+        return $this->_get(self::BANK_ACCOUNT_SHORT_CODE);
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getImeiTime()
+    {
+        return $this->_get(self::IMEI_TIME);
     }
 
 
+    /**
+     * @param string|null $checkoutDeliveryTime 
+     *
+     * @return CustomFieldsInterface
+     */
+    public function setCheckoutDeliveryTime(string $checkoutDeliveryTime = null)
+    {
+        return $this->setData(self::CHECKOUT_DELIVERY_TIME, $checkoutDeliveryTime);
+    }
+    
+
+    /**
+     * @param string|null $checkoutCollectionSchedule 
+     *
+     * @return CustomFieldsInterface
+     */
+    public function setCheckoutCollectionSchedule(string $checkoutCollectionSchedule = null)
+    {
+        return $this->setData(self::CHECKOUT_COLLECTION_SCHEDULE, $checkoutCollectionSchedule);
+    }
+
+    /**
+     * @param string|null $checkoutDeliveryDate 
+     *
+     * @return CustomFieldsInterface
+     */
+    public function setCheckoutDeliveryDate(string $checkoutDeliveryDate = null)
+    {
+        return $this->setData(self::CHECKOUT_DELIVERY_DATE, $checkoutDeliveryDate);
+    }
+
+    /**
+     * @param string|null $checkoutCollectionTime 
+     *
+     * @return CustomFieldsInterface
+     */
+    public function setCheckoutCollectionTime(string $checkoutCollectionTime = null)
+    {
+        return $this->setData(self::CHECKOUT_COLLECTION_TIME, $checkoutCollectionTime);
+    }
+
+    /**
+     * @param string|null $checkboxBankTranfer 
+     *
+     * @return CustomFieldsInterface
+     */
+    public function setCheckboxBankTranfer(string $checkboxBankTranfer = null)
+    {
+        return $this->setData(self::CHECKBOX_BANK_TRANFER, $checkboxBankTranfer);
+    }
+
+    /**
+     * @param string|null $bankNameOnAccount 
+     *
+     * @return CustomFieldsInterface
+     */
+    public function setBankNameOnAccount(string $bankNameOnAccount = null)
+    {
+        return $this->setData(self::BANK_NAME_ON_ACCOUNT, $bankNameOnAccount);
+    }
+
+    /**
+     * @param string|null $bankAccountNumber 
+     *
+     * @return CustomFieldsInterface
+     */
+    public function setBankAccountNumber(string $bankAccountNumber = null)
+    {
+        return $this->setData(self::BANK_ACCOUNT_NUMBER, $bankAccountNumber);
+    }
+
+    /**
+     * @param string|null $bankAccountShortCode 
+     *
+     * @return CustomFieldsInterface
+     */
+    public function setBankAccountShortCode(string $bankAccountShortCode = null)
+    {
+        return $this->setData(self::BANK_ACCOUNT_SHORT_CODE, $bankAccountShortCode);
+    }
+
+    /**
+     * @param string|null $imeiTime 
+     *
+     * @return CustomFieldsInterface
+     */
+    public function setImeiTime(string $imeiTime = null)
+    {
+        return $this->setData(self::IMEI_TIME, $imeiTime);
+    }
 
 
 }
